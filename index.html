@@ -20,12 +20,6 @@
             });
         }
     </script>
-
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,6 +36,7 @@
     
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" media="print" onload="this.media='all'">
+    
     <noscript>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -290,7 +285,6 @@
                             <li>Responsabilidade Civil</li>
                         </ul>
                     </div>
-
                 </div>
                 
                 <div class="text-center mt-12">
@@ -474,7 +468,6 @@
             const banner = document.getElementById('cookie-banner');
             const consent = localStorage.getItem('cookieConsent');
 
-            // Exibe o banner de forma suave se o usuário ainda não escolheu
             if (!consent) {
                 setTimeout(() => {
                     banner.classList.remove('translate-y-full');
@@ -501,8 +494,28 @@
         }
 
         // ==========================================
-        // FILTRO ANTI-CURIOSOS (15 SEGUNDOS) - GTM
+        // FILTRO ANTI-CURIOSOS E ATRASO DO GTM (PAGESPEED)
         // ==========================================
+        var gtmCarregado = false;
+        function carregarGTM() {
+            if (gtmCarregado) return;
+            gtmCarregado = true;
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-XXXXXXX');
+            
+            window.removeEventListener('scroll', carregarGTM);
+            window.removeEventListener('mousemove', carregarGTM);
+            window.removeEventListener('touchstart', carregarGTM);
+        }
+
+        window.addEventListener('scroll', carregarGTM, {once: true});
+        window.addEventListener('mousemove', carregarGTM, {once: true});
+        window.addEventListener('touchstart', carregarGTM, {once: true});
+        setTimeout(carregarGTM, 3500);
+
         document.addEventListener("DOMContentLoaded", function() {
             const tempoInicial = new Date().getTime();
             const botoesWhats = document.querySelectorAll('a[href^="https://wa.me"]');
