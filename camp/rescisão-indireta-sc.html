@@ -74,6 +74,10 @@
             0%    {opacity: 0; margin-top: -10px}
             100%  {opacity: 1; margin-top: 0px}
         }
+        
+        /* Barra de Rolagem (Scrollbar) idêntica à da Home Page */
+        ::-webkit-scrollbar { width: 12px; background-color: #660000; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(transparent, #ff73b0); border-radius: 50px; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans antialiased relative">
@@ -82,15 +86,15 @@
     height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
     
     <header class="bg-white sticky top-0 z-50 shadow-sm border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-3">
-            <div class="flex-shrink-0 mx-auto md:mx-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center items-center py-3">
+            <div class="flex-shrink-0">
                 <img src="../img/logo-janaina-dihl-advogados-porto-alegre.webp" alt="Janaina Dihl Advogados" class="h-8 md:h-10 w-auto">
             </div>
         </div>
     </header>
 
     <main id="conteudo-principal">
-        <section class="relative bg-white pt-8 pb-10 lg:pt-16 lg:pb-16 overflow-hidden flex items-center min-h-[75vh]">
+        <section class="relative bg-white overflow-hidden flex items-center min-h-[calc(100vh-64px)] md:min-h-[calc(100vh-76px)] py-8 lg:py-0">
             <div class="absolute inset-0 w-full h-full z-0 flex justify-end overflow-hidden">
                 <div class="w-full lg:w-[55%] h-full relative">
                     <img src="../img/advogada-janaina-dihl-especialista-direito-civil-rs.webp" alt="Dra. Janaina Dihl" class="w-full h-full object-cover object-top scale-105">
@@ -103,7 +107,7 @@
 
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
                 <div class="w-full lg:w-[60%] text-center md:text-left pr-0 md:pr-6">
-                    <span class="inline-block bg-slate-100 text-slate-700 border border-slate-200 px-3 py-1 rounded-full text-xs font-bold tracking-widest uppercase mb-4">
+                    <span class="inline-block bg-slate-100 text-slate-700 border border-slate-200 px-3 py-1 rounded-full text-xs font-bold tracking-widest uppercase mb-4 mt-8 md:mt-0">
                         Direito do Trabalho • Santa Catarina
                     </span>
                     
@@ -248,35 +252,32 @@
             </div>
         </section>
 
-        <section class="py-12 bg-white">
+        <section class="py-16 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-10">
-                    <span class="text-sm font-bold tracking-widest text-slate-500 uppercase block mb-2">Nossa Equipe</span>
-                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-primary">Atendimento Especializado</h2>
-                    <div class="w-16 h-1 bg-brand-primary mx-auto mt-6 mb-6"></div>
-                    <p class="text-base text-gray-600 max-w-2xl mx-auto">Experiência comprovada com suporte 100% online para trabalhadores de toda Santa Catarina.</p>
-                </div>
-                
-                <div class="grid md:grid-cols-2 gap-8 items-stretch max-w-4xl mx-auto">
-                    <div class="bg-white rounded-xl shadow-sm border border-gray-100 flex flex-col h-full overflow-hidden">
-                        <div class="h-80 w-full bg-gray-200 overflow-hidden shrink-0 relative">
-                            <img src="../img/perfil-advogada-janaina-dihl-porto-alegre.webp" alt="Dra. Janaina Dihl" class="w-full h-full object-cover object-top">
-                        </div>
-                        <div class="p-6 text-center flex flex-col flex-grow">
-                            <h3 class="text-xl font-bold text-brand-dark mb-1">Dra. Janaina Dihl</h3>
-                            <p class="text-slate-500 font-bold text-[10px] uppercase tracking-widest mb-4">OAB/RS 78.463 | Advogada</p>
-                            <p class="text-sm text-gray-600 leading-relaxed flex-grow italic">"Com 15 anos de atuação, garanto que o trabalhador tenha uma transição segura e receba tudo o que a lei determina."</p>
+                <div class="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+                    <div class="order-2 md:order-1 relative px-4 md:px-0">
+                        <img src="../img/selo-15-anos-experiencia-advocacia.webp" alt="Dra. Janaina Dihl e Dra. Gabriela Mello no escritório" class="w-full max-w-md mx-auto rounded-lg shadow-sm object-cover">
+                        
+                        <div class="absolute -bottom-6 -right-2 md:-bottom-8 md:-right-8 bg-brand-primary text-white p-5 md:p-6 rounded-lg shadow-xl z-20 min-w-[130px] md:min-w-[140px] border border-brand-accent flex flex-col items-center justify-center">
+                            <div class="flex items-baseline justify-center">
+                                <span class="text-3xl md:text-4xl font-serif font-bold">15</span>
+                                <span class="text-xl md:text-2xl font-serif text-white ml-1">+</span>
+                            </div>
+                            <span class="text-[10px] md:text-xs font-semibold uppercase tracking-widest text-gray-200 text-center mt-1">Anos de<br>Experiência</span>
                         </div>
                     </div>
-
-                    <div class="bg-white rounded-xl shadow-sm border border-gray-100 flex flex-col h-full overflow-hidden">
-                        <div class="h-80 w-full bg-gray-200 overflow-hidden shrink-0 relative">
-                            <img src="../img/perfil-advogada-trabalhista-gabriela-mello.webp" alt="Dra. Gabriela Mello" class="w-full h-full object-cover object-top">
-                        </div>
-                        <div class="p-6 text-center flex flex-col flex-grow">
-                            <h3 class="text-xl font-bold text-brand-dark mb-1">Dra. Gabriela Mello</h3>
-                            <p class="text-slate-500 font-bold text-[10px] uppercase tracking-widest mb-4">OAB/RS 132.205 | Advogada</p>
-                            <p class="text-sm text-gray-600 leading-relaxed flex-grow italic">"Atuação incansável na defesa dos direitos do trabalhador, com suporte online humanizado e ágil."</p>
+                    
+                    <div class="order-1 md:order-2">
+                        <span class="text-sm font-bold tracking-widest text-slate-500 uppercase block mb-2">Nossa Equipe</span>
+                        <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-primary mb-4">Atendimento Especializado</h2>
+                        <div class="w-16 h-1 bg-brand-primary mb-8"></div>
+                        
+                        <div class="text-base text-gray-700 leading-relaxed space-y-4">
+                            <p>Nosso escritório une a vasta experiência corporativa da <strong>Dra. Janaina Dihl (OAB/RS 78.463)</strong>, com mais de 15 anos de atuação, à combatividade incansável da <strong>Dra. Gabriela Mello (OAB/RS 132.205)</strong> na defesa dos direitos trabalhistas.</p>
+                            <p>Garantimos um suporte 100% online, ágil e seguro para trabalhadores de toda Santa Catarina. Cada caso é tratado com dedicação exclusiva, assegurando que você tenha uma transição profissional justa e receba tudo o que a lei determina.</p>
+                            <blockquote class="border-l-4 border-brand-primary pl-4 italic text-brand-dark mt-6 font-medium bg-gray-50 py-3 pr-2 rounded-r shadow-sm">
+                                "Entendemos que por trás de cada processo existe uma história que merece ser ouvida e defendida com excelência."
+                            </blockquote>
                         </div>
                     </div>
                 </div>
